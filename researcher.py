@@ -1,16 +1,15 @@
 # researcher.py
 
-from langchain_community.llms import HuggingFaceHub
+import os
+from langchain_huggingface import HuggingFaceEndpoint
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain.agents import initialize_agent, Tool
-import os
 
-# If you have a Hugging Face API token, set it as an environment variable:
-# os.environ["HUGGINGFACEHUB_API_TOKEN"] = "your_huggingface_token_here"
+# ✅ Set your Hugging Face API token
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
-# 1. Define the web search tool
+# 1. Define the DuckDuckGo Search Tool
 search = DuckDuckGoSearchRun()
-
 tools = [
     Tool(
         name="Web Search",
@@ -19,20 +18,30 @@ tools = [
     ),
 ]
 
-# 2. Initialize the Hugging Face LLM (using a free model, e.g., google/flan-t5-base)
-llm = HuggingFaceHub(
+# 2. Initialize the LLM with correct args
+llm = HuggingFaceEndpoint(
     repo_id="google/flan-t5-base",
-    model_kwargs={"temperature": 0.2, "max_length": 256}
+    temperature=0.2,
+    model_kwargs={
+        "max_new_tokens": 256  # ✅ use max_new_tokens, NOT max_length
+    }
 )
 
 # 3. Initialize the agent
 agent = initialize_agent(
-    tools,
-    llm,
+    tools=tools,
+    llm=llm,
     agent="zero-shot-react-description",
     verbose=True
 )
 
+# 4. Define your agent interface
 class ResearcherAgent:
     def run_research(self, task):
-        return agent.run(task)
+        return agent.run(task)  # ✅ `run()` works fine for agents
+
+# 5. Optional test run
+if __name__ == "__main__":
+    researcher = ResearcherAgent()
+    result = researcher.run_research("What are the latest breakthroughs in AI?")
+    print("\n🧠 Agent's Answer:\n", result)
