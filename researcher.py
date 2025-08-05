@@ -6,7 +6,6 @@ from langchain_community.tools import DuckDuckGoSearchRun
 from langchain.agents import initialize_agent, Tool
 
 # ✅ Set your Hugging Face API token
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
 # 1. Define the DuckDuckGo Search Tool
 search = DuckDuckGoSearchRun()
