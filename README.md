@@ -14,3 +14,6 @@ It’s not just a bot — it’s an <strong>AI-driven research partner</strong> 
 <li>💰 Funding rounds &amp; investments</li>
 </ul>
 
+<p>All of this is delivered to you in <strong>structured, concise, and insightful reports</strong> — without lifting a finger.</p>
+
+---
