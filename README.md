@@ -16,7 +16,7 @@ It’s not just a bot  it’s an <strong>AI-driven research partner</strong> tha
 
 <p>All of this is delivered to you in <strong>structured, concise, and insightful reports</strong> — without lifting a finger.</p>
 
--
+
 
 <h2>🧩 How It Works — The Multi-Agent Brain</h2>
 
