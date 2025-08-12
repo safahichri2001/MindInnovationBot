@@ -1,6 +1,5 @@
-<h1 align="center">🤖 MindInnovationBot</h1>
-<p align="center"><em>Your Autonomous AI Analyst for Mental Health Innovation in MENA</em></p>
-
+# 🤖 MindInnovationBot  
+*Your Intelligent AI Partner for Advancing Mental Health Innovation in MENA*
 ---
 <h2>🌍 The Vision</h2>
 <p>In the fast-evolving landscape of <strong>mental health innovation</strong> across the <strong>Middle East &amp; North Africa</strong>, staying up-to-date can feel like chasing the wind.</p>
