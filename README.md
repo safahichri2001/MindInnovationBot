@@ -6,8 +6,6 @@
 Navigating the rapidly changing landscape of mental health innovation in the Middle East and North Africa can be overwhelming. New research, startups, policies, and funding opportunities emerge daily. MindInnovationBot automates this discovery process, providing you with timely, relevant, and actionable insights so you can focus on making an impact.
 
 ---
-<p><strong>MindInnovationBot</strong> is here to change that.<br>
-It’s not just a bot  it’s an <strong>AI-driven research partner</strong> that works <em>24/7</em>, scanning the digital horizon for:</p>
 
 <ul>
 <li>🧠 Breakthrough research &amp; clinical studies</li>
@@ -20,11 +18,7 @@ It’s not just a bot  it’s an <strong>AI-driven research partner</strong> tha
 
 
 
-<h2>🧩 How It Works — The Multi-Agent Brain</h2>
 
-<p align="center">
-  <img src="A_digital_flowchart_illustrates_the_architecture_a.png" alt="MindInnovationBot Architecture" width="600">
-</p>
 
 <table>
 <tr><th>Agent</th><th>What It Does</th><th>Powered By</th></tr>
