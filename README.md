@@ -3,7 +3,7 @@
 ---
 ## 🌍 Why MindInnovationBot?
 
-Navigating the rapidly changing landscape of mental health innovation in the Middle East and North Africa can be overwhelming. New research, startups, policies, and funding opportunities emerge daily. MindInnovationBot automates this discovery process, providing you with timely, relevant, and actionable insights — so you can focus on making an impact.
+Navigating the rapidly changing landscape of mental health innovation in the Middle East and North Africa can be overwhelming. New research, startups, policies, and funding opportunities emerge daily. MindInnovationBot automates this discovery process, providing you with timely, relevant, and actionable insights so you can focus on making an impact.
 
 ---
 <p><strong>MindInnovationBot</strong> is here to change that.<br>
