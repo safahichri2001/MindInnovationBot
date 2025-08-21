@@ -1,29 +1,27 @@
-import os
-from dotenv import load_dotenv
+import yaml
 from agents.planner import PlannerAgent
 from agents.researcher import ResearcherAgent
 from agents.summarizer import SummarizerAgent
+from agents.memory import MemoryAgent
+from agents.notifier import NotifierAgent
 
-load_dotenv()
-API_KEY = os.getenv("GEMINI_API_KEY")
-00
 def main():
-    # Initialize agents
+    with open("config/settings.yaml", "r") as f:
+        config = yaml.safe_load(f)
+
     planner = PlannerAgent()
-    researcher = ResearcherAgent(API_KEY)
-    summarizer = SummarizerAgent(API_KEY)
+    researcher = ResearcherAgent()
+    summarizer = SummarizerAgent()
+    memory = MemoryAgent()
+    notifier = NotifierAgent()
 
-    # Step 1: Planner decides tasks
-    topics = planner.plan()
+    tasks = planner.define_tasks(config["COUNTRIES"])
+    findings = [researcher.execute_task(task) for task in tasks]
+    combined = "\n\n".join(findings)
+    summary = summarizer.summarize(combined)
 
-    # Step 2: Researcher collects data
-    data = researcher.fetch_data(topics)
-
-    # Step 3: Summarizer creates insights
-    summary = summarizer.summarize(data)
-
-    print("=== MindInnovationBot Summary ===")
-    print(summary)
+    memory.store(summary)
+    notifier.notify(summary)
 
 if __name__ == "__main__":
     main()

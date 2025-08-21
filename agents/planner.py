@@ -1,8 +1,3 @@
 class PlannerAgent:
-    def plan(self):
-        return [
-            "Mental health startups",
-            "Government policies on mental health",
-            "Recent MENA mental health research",
-            "Funding and investments in mental health",
-        ]
+    def define_tasks(self, countries):
+        return [f"Search for healthcare news in {country} from yesterday" for country in countries]
