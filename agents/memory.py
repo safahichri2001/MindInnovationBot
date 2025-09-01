@@ -1,26 +1,39 @@
 import json
 from datetime import date
+from pathlib import Path
+from typing import Optional
 
-class MemoryAgent:
-    def __init__(self, path="data/memory_store.json"):
-        self.path = path
-        self.load_memory()
 
-    def load_memory(self):
-        try:
-            with open(self.path, "r") as f:
+class Mem0:
+    def __init__(self, path: str = "data/memory_store.json") -> None:
+        self.path = Path(path)
+        self.load()
+
+    def load(self) -> None:
+        if self.path.exists():
+            with self.path.open("r") as f:
                 self.memory = json.load(f)
-        except FileNotFoundError:
+        else:
             self.memory = {}
 
-    def store(self, summary):
+    def store(self, country: str, summary: str) -> bool:
         today = str(date.today())
-        self.memory[today] = summary
+        self.memory.setdefault(today, {})
+        self.memory[today].setdefault(country, [])
+
+        if summary in self.memory[today][country]:
+            print(f"🧠 Duplicate summary for {country} on {today}. Skipping.")
+            return False
+
+        self.memory[today][country].append(summary)
         self.save()
+        print(f"🧠 Stored new summary for {country} on {today}.")
+        return True
 
-    def retrieve(self, day):
-        return self.memory.get(day, None)
+    def retrieve(self, day: Optional[str] = None) -> dict:
+        day = day or str(date.today())
+        return self.memory.get(day, {})
 
-    def save(self):
-        with open(self.path, "w") as f:
+    def save(self) -> None:
+        with self.path.open("w") as f:
             json.dump(self.memory, f, indent=2)
