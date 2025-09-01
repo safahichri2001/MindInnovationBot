@@ -4,12 +4,12 @@ from pathlib import Path
 from typing import Optional
 
 
-class MemoryAgent:
+class Mem0:
     def __init__(self, path: str = "data/memory_store.json") -> None:
         self.path = Path(path)
-        self.load_memory()
+        self.load()
 
-    def load_memory(self) -> None:
+    def load(self) -> None:
         if self.path.exists():
             with self.path.open("r") as f:
                 self.memory = json.load(f)
@@ -21,7 +21,6 @@ class MemoryAgent:
         self.memory.setdefault(today, {})
         self.memory[today].setdefault(country, [])
 
-        # Check for exact duplicate
         if summary in self.memory[today][country]:
             print(f"🧠 Duplicate summary for {country} on {today}. Skipping.")
             return False
